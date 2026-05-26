@@ -1,274 +1,463 @@
 <!DOCTYPE html>
-<html lang=”en”>
+<html lang="en">
 <head>
-  <meta charset=”UTF-8” />
-  <meta name=”viewport” content=”width=device-width, initial-scale=1.0”/>
-  <title>Jaybreezy Tech Hub</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jay Tech Hub</title>
 
   <style>
+
     *{
-      Margin:0;
-      Padding:0;
-      Box-sizing:border-box;
-      Font-family:Arial, Helvetica, sans-serif;
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+      scroll-behavior:smooth;
     }
 
-    Body{
-      Background:#0f172a;
-      Color:white;
-      Overflow-x:hidden;
+    body{
+      background:#0f172a;
+      color:white;
+      overflow-x:hidden;
     }
 
-    Header{
-      Width:100%;
-      Padding:20px 8%;
-      Display:flex;
-      Justify-content:space-between;
-      Align-items:center;
-      Position:fixed;
-      Top:0;
-      Background:rgba(15,23,42,0.8);
-      Backdrop-filter:blur(10px);
+    /* HEADER */
+
+    header{
+      width:100%;
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      position:fixed;
+      top:0;
       z-index:1000;
+      background:rgba(15,23,42,0.85);
+      backdrop-filter:blur(12px);
     }
 
     .logo{
-      Font-size:28px;
-      Font-weight:bold;
-      Color:#38bdf8;
+      font-size:28px;
+      font-weight:bold;
+      color:#38bdf8;
     }
 
-    Nav a{
-      Color:white;
-      Text-decoration:none;
-      Margin-left:25px;
-      Transition:0.3s;
+    nav{
+      display:flex;
+      align-items:center;
+      gap:20px;
     }
 
-    Nav a:hover{
-      Color:#38bdf8;
+    nav a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-size:15px;
     }
+
+    nav a:hover{
+      color:#38bdf8;
+    }
+
+    /* SEARCH BAR */
+
+    .search-box{
+      display:flex;
+      align-items:center;
+      background:rgba(255,255,255,0.08);
+      border-radius:50px;
+      padding:8px 15px;
+      border:1px solid rgba(255,255,255,0.1);
+    }
+
+    .search-box input{
+      background:transparent;
+      border:none;
+      outline:none;
+      color:white;
+      width:180px;
+    }
+
+    .search-box input::placeholder{
+      color:#cbd5e1;
+    }
+
+    /* HERO */
 
     .hero{
-      Min-height:100vh;
-      Display:flex;
-      Justify-content:center;
-      Align-items:center;
-      Text-align:center;
-      Padding:0 8%;
-      Background:
-      Linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)),
-      url(‘https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop’);
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:120px 8% 80px;
+      background:
+      linear-gradient(rgba(15,23,42,0.75), rgba(15,23,42,0.8)),
+      url('https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1400&auto=format&fit=crop');
       background-size:cover;
       background-position:center;
     }
 
     .hero-content{
-      Max-width:700px;
+      max-width:750px;
     }
 
     .hero h1{
-      Font-size:60px;
-      Margin-bottom:20px;
+      font-size:65px;
+      margin-bottom:20px;
+      line-height:1.1;
     }
 
     .hero h1 span{
-      Color:#38bdf8;
+      color:#38bdf8;
     }
 
     .hero p{
-      Font-size:18px;
-      Line-height:1.7;
-      Color:#cbd5e1;
-      Margin-bottom:30px;
+      color:#cbd5e1;
+      line-height:1.8;
+      margin-bottom:35px;
+      font-size:18px;
+    }
+
+    .hero-buttons{
+      display:flex;
+      justify-content:center;
+      gap:15px;
+      flex-wrap:wrap;
     }
 
     .btn{
-      Display:inline-block;
-      Padding:15px 35px;
-      Background:#38bdf8;
-      Color:white;
-      Text-decoration:none;
-      Border-radius:50px;
-      Transition:0.3s;
-      Font-weight:bold;
+      display:inline-block;
+      padding:15px 35px;
+      background:#38bdf8;
+      color:white;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:bold;
+      transition:0.3s;
     }
 
     .btn:hover{
-      Background:#0ea5e9;
-      Transform:translateY(-3px);
+      transform:translateY(-5px);
+      background:#0ea5e9;
     }
 
-    Section{
-      Padding:100px 8%;
+    .btn-secondary{
+      background:transparent;
+      border:2px solid #38bdf8;
+    }
+
+    /* STATS */
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+      gap:20px;
+      margin-top:-60px;
+      padding:0 8%;
+    }
+
+    .stat-box{
+      background:rgba(255,255,255,0.05);
+      padding:30px;
+      text-align:center;
+      border-radius:20px;
+      backdrop-filter:blur(10px);
+      border:1px solid rgba(255,255,255,0.08);
+    }
+
+    .stat-box h2{
+      color:#38bdf8;
+      margin-bottom:10px;
+      font-size:35px;
+    }
+
+    /* GENERAL */
+
+    section{
+      padding:100px 8%;
     }
 
     .section-title{
-      Text-align:center;
-      Font-size:40px;
-      Margin-bottom:50px;
-      Color:#38bdf8;
+      text-align:center;
+      font-size:42px;
+      margin-bottom:50px;
+      color:#38bdf8;
     }
 
+    /* ABOUT */
+
     .about{
-      Display:grid;
-      Grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
-      Gap:40px;
-      Align-items:center;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:40px;
+      align-items:center;
     }
 
     .about img{
-      Width:100%;
-      Border-radius:20px;
+      width:100%;
+      border-radius:20px;
     }
 
     .about-text p{
-      Line-height:1.8;
-      Color:#cbd5e1;
+      line-height:1.9;
+      color:#cbd5e1;
+      margin-bottom:20px;
     }
 
+    /* SERVICES */
+
     .services{
-      Display:grid;
-      Grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      Gap:25px;
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
     }
 
     .card{
-      Background:rgba(255,255,255,0.05);
-      Padding:30px;
-      Border-radius:20px;
-      Backdrop-filter:blur(10px);
-      Transition:0.3s;
-      Border:1px solid rgba(255,255,255,0.1);
+      background:rgba(255,255,255,0.05);
+      padding:35px;
+      border-radius:20px;
+      transition:0.3s;
+      border:1px solid rgba(255,255,255,0.1);
     }
 
     .card:hover{
-      Transform:translateY(-10px);
-      Border-color:#38bdf8;
+      transform:translateY(-10px);
+      border-color:#38bdf8;
     }
 
     .card h3{
-      Margin-bottom:15px;
-      Color:#38bdf8;
+      color:#38bdf8;
+      margin-bottom:15px;
+      font-size:22px;
     }
 
     .card p{
-      Color:#cbd5e1;
-      Line-height:1.7;
+      color:#cbd5e1;
+      line-height:1.8;
     }
 
+    /* CONTACT */
+
     .contact{
-      Text-align:center;
+      text-align:center;
     }
 
     .contact p{
-      Margin-bottom:20px;
-      Color:#cbd5e1;
+      color:#cbd5e1;
+      margin-bottom:15px;
+      font-size:18px;
     }
 
-    Footer{
-      Text-align:center;
-      Padding:25px;
-      Background:#020617;
-      Color:#94a3b8;
+    footer{
+      background:#020617;
+      text-align:center;
+      padding:25px;
+      color:#94a3b8;
     }
 
-    @media(max-width:768px){
+    /* RESPONSIVE */
+
+    @media(max-width:900px){
+
+      header{
+        flex-direction:column;
+        gap:15px;
+      }
+
+      nav{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
       .hero h1{
-        Font-size:40px;
+        font-size:45px;
       }
 
-      Nav{
-        Display:none;
+      .search-box input{
+        width:120px;
       }
     }
+
+    @media(max-width:600px){
+
+      .hero h1{
+        font-size:36px;
+      }
+
+      .hero p{
+        font-size:16px;
+      }
+
+      .btn{
+        width:100%;
+      }
+
+      .hero-buttons{
+        flex-direction:column;
+      }
+
+      .section-title{
+        font-size:32px;
+      }
+    }
+
   </style>
 </head>
+
 <body>
 
+  <!-- HEADER -->
+
   <header>
-    <div class=”logo”>JaybreezyTechHub</div>
+
+    <div class="logo">JayTechHub</div>
 
     <nav>
-      <a href=”#”>Home</a>
-      <a href=”#about”>About</a>
-      <a href=”#services”>Services</a>
-      <a href=”#contact”>Contact</a>
+      <a href="#">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
     </nav>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search...">
+    </div>
+
   </header>
 
-  <section class=”hero”>
-    <div class=”hero-content”>
-      <h1>Build Your <span>Digital Future</span></h1>
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h1>
+        Build Your <span>Digital Future</span>
+      </h1>
 
       <p>
-        Modern websites, creative designs, and smart tech solutions
-        Built professionally for businesses, brands, churches and creators.
+        Premium websites, creative branding and modern tech
+        solutions for businesses, churches, creators and startups.
       </p>
 
-      <a href=”#contact” class=”btn”>Get Started</a>
-    </div>
-  </section>
-
-  <section id=”about”>
-    <h2 class=”section-title”>About Us</h2>
-
-    <div class=”about”>
-      <img src=https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop>
-
-      <div class=”about-text”>
-        <p>
-          We create premium websites and digital experiences with clean
-          Designs, smooth performance and modern technology.
-          Whether you’re a startup, church, brand or business,
-          We help you stand out online professionally.
-        </p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn">Get Started</a>
+        <a href="#services" class="btn btn-secondary">Explore</a>
       </div>
+
     </div>
+
   </section>
 
-  <section id=”services”>
-    <h2 class=”section-title”>Our Services</h2>
+  <!-- STATS -->
 
-    <div class=”services”>
+  <div class="stats">
 
-      <div class=”card”>
+    <div class="stat-box">
+      <h2>50+</h2>
+      <p>Projects Done</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>24/7</h2>
+      <p>Support</p>
+    </div>
+
+    <div class="stat-box">
+      <h2>100%</h2>
+      <p>Responsive Design</p>
+    </div>
+
+  </div>
+
+  <!-- ABOUT -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Us</h2>
+
+    <div class="about">
+
+      <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop">
+
+      <div class="about-text">
+
+        <p>
+          We create professional digital experiences with modern
+          design, smooth performance and premium user interface layouts.
+        </p>
+
+        <p>
+          From websites to branding and tech solutions,
+          we help businesses and creators grow online professionally.
+        </p>
+
+        <a href="#" class="btn">Learn More</a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+
+  <section id="services">
+
+    <h2 class="section-title">Our Services</h2>
+
+    <div class="services">
+
+      <div class="card">
         <h3>Web Development</h3>
         <p>
-          Responsive and modern websites built for speed and beauty.
+          Responsive and modern websites built for performance.
         </p>
       </div>
 
-      <div class=”card”>
+      <div class="card">
         <h3>Graphic Design</h3>
         <p>
-          Professional flyers, branding and social media creatives.
+          Flyers, branding, church designs and social media graphics.
         </p>
       </div>
 
-      <div class=”card”>
+      <div class="card">
         <h3>Tech Solutions</h3>
         <p>
-          Smart digital solutions for modern businesses and creators.
+          Smart digital solutions for businesses and creators.
         </p>
       </div>
 
     </div>
+
   </section>
 
-  <section id=”contact”>
-    <h2 class=”section-title”>Contact</h2>
+  <!-- CONTACT -->
 
-    <div class=”contact”>
+  <section id="contact">
+
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact">
+
       <p>Email: joshuajohnso1999@gmail.com</p>
+
       <p>Phone: +234 704 500 2141</p>
 
-      <a href=”#” class=”btn”>Message Us</a>
+      <p>Benin City, Edo State, Nigeria</p>
+
+      <a href="#" class="btn">Send Message</a>
+
     </div>
+
   </section>
 
+  <!-- FOOTER -->
+
   <footer>
-    © 2026 JaybreezyTechHub. All Rights Reserved.
+    © 2026 JayTechHub — All Rights Reserved.
   </footer>
 
 </body>
